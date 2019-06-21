@@ -6,4 +6,7 @@
 
     <color name="textwhite">#FFFFFFFF</color>
     <color name="listview_divider">#FFCCCCCC</color>
+    <color name="sub_text_color">#FF777777</color>
+    <color name="action_bar_color">#ff459AF7</color>
+
 </resources>

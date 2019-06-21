@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <com.github.mvp.widgets.TabItem
+        <ouyj.hyena.com.loginmvp.view.TabItem
             android:id="@+id/tab_item_main_0"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:src="@drawable/main_selector_space"
             app:tab_item_count="0"
             app:tab_item_label="首页" />
-        <com.github.mvp.widgets.TabItem
+        <ouyj.hyena.com.loginmvp.view.TabItem
             android:id="@+id/tab_item_main_1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
             android:src="@drawable/main_selector_department"
             app:tab_item_count="0"
             app:tab_item_label="发现" />
-        <com.github.mvp.widgets.TabItem
+        <ouyj.hyena.com.loginmvp.view.TabItem
             android:id="@+id/tab_item_main_2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:src="@drawable/main_selector_mipian"
             app:tab_item_count="1"
             app:tab_item_label="通知" />
-        <com.github.mvp.widgets.TabItem
+        <ouyj.hyena.com.loginmvp.view.TabItem
             android:id="@+id/tab_item_main_3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:src="@drawable/main_selector_message"
             app:tab_item_count="2"
             app:tab_item_label="私信" />
-        <com.github.mvp.widgets.TabItem
+        <ouyj.hyena.com.loginmvp.view.TabItem
             android:id="@+id/tab_item_main_4"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
