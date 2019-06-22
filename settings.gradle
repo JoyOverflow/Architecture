@@ -1,1 +1,1 @@
-include ':app', ':LoginMVP'
+include ':app', ':LoginMVP', ':ButterKnife'
