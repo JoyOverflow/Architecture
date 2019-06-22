@@ -35,8 +35,8 @@ public class LoginFragment extends Fragment implements LoginContract.View{
     @BindView(R.id.loginForm)
     ScrollView loginForm;
 
-//    @BindView(R.id.btnLogin)
-//    Button signButton;
+    //@BindView(R.id.btnLogin)
+    //Button signButton;
 
     //视图层需持有Presenter实例
     private LoginContract.Presenter presenter;

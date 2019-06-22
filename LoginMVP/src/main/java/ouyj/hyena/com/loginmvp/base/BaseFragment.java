@@ -35,7 +35,6 @@ public class BaseFragment extends Fragment implements MainContract.View {
     protected ActionBar mActionBar;
     private ZhiHuNewsAdapter mAdapter;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
@@ -52,11 +51,10 @@ public class BaseFragment extends Fragment implements MainContract.View {
      */
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         mAdapter = new ZhiHuNewsAdapter(getContext());
         listView.setAdapter(mAdapter);
     }
-
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -65,6 +63,7 @@ public class BaseFragment extends Fragment implements MainContract.View {
             setTitle();
         }
     }
+
 
     @Override
     public void setPresenter(MainContract.Presenter presenter) {

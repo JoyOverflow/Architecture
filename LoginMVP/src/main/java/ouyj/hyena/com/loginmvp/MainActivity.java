@@ -33,13 +33,13 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.fab)
     FloatingActionButton floatingBar;
 
-    private FragmentManager mFragmentManager;
-    private TodayFragment mTodayFragment;
-    private InterestFragment mInterestFragment;
-    private SafetyFragment mSafetyFragment;
-    private SportFragment mSportFragment;
-    private OtherFragment mOtherFragment;
-    private MainPresenter mPresenter;
+    private FragmentManager manager;
+    private TodayFragment todayFragment;
+    private InterestFragment interestFragment;
+    private SafetyFragment safetyFragment;
+    private SportFragment sportFragment;
+    private OtherFragment otherFragment;
+    private MainPresenter presenter;
 
 
 
@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity {
         //使用ToolBar来替代ActionBar
         setSupportActionBar(toolbar);
 
-        mFragmentManager = getSupportFragmentManager();
-        mPresenter = new MainPresenter(getApplicationContext());
+        manager = getSupportFragmentManager();
+        presenter = new MainPresenter(getApplicationContext());
         tabItemMain0.performClick();
     }
 
@@ -104,85 +104,88 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void showFragment(int tag) {
-        if (mFragmentManager != null) {
-            FragmentTransaction transaction = mFragmentManager.beginTransaction();
+        if (manager != null) {
+            FragmentTransaction transaction = manager.beginTransaction();
             hideFragments();
             switch (tag) {
                 case TagStatic.TAG_FRAGMENT_TODAY:
-                    mTodayFragment = (TodayFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_TODAY + "");
-                    if (mTodayFragment == null) {
-                        mTodayFragment = new TodayFragment();
-                        transaction.add(R.id.fragment_content, mTodayFragment, tag + "");
-                    } else {
-                        transaction.show(mTodayFragment);
+                    todayFragment = (TodayFragment)
+                            manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_TODAY + "");
+                    if (todayFragment == null) {
+                        todayFragment = new TodayFragment();
+                        transaction.add(R.id.fragment_content, todayFragment, tag + "");
                     }
-                    mPresenter.setView(mTodayFragment);
+                    else
+                        transaction.show(todayFragment);
+
+                    presenter.setView(todayFragment);
                     break;
                 case TagStatic.TAG_FRAGMENT_INTEREST:
-                    mInterestFragment = (InterestFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_INTEREST + "");
-                    if (mInterestFragment == null) {
-                        mInterestFragment = new InterestFragment();
-                        transaction.add(R.id.fragment_content, mInterestFragment, tag + "");
-                    } else {
-                        transaction.show(mInterestFragment);
+                    interestFragment = (InterestFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_INTEREST + "");
+                    if (interestFragment == null) {
+                        interestFragment = new InterestFragment();
+                        transaction.add(R.id.fragment_content, interestFragment, tag + "");
                     }
-                    mPresenter.setView(mInterestFragment);
+                    else
+                        transaction.show(interestFragment);
+
+                    presenter.setView(interestFragment);
                     break;
                 case TagStatic.TAG_FRAGMENT_SAFETY:
-                    mSafetyFragment = (SafetyFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SAFETY + "");
-                    if (mSafetyFragment == null) {
-                        mSafetyFragment = new SafetyFragment();
-                        transaction.add(R.id.fragment_content, mSafetyFragment, tag + "");
+                    safetyFragment = (SafetyFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SAFETY + "");
+                    if (safetyFragment == null) {
+                        safetyFragment = new SafetyFragment();
+                        transaction.add(R.id.fragment_content, safetyFragment, tag + "");
                     } else {
-                        transaction.show(mSafetyFragment);
+                        transaction.show(safetyFragment);
                     }
-                    mPresenter.setView(mSafetyFragment);
+                    presenter.setView(safetyFragment);
                     break;
                 case TagStatic.TAG_FRAGMENT_SPORT:
-                    mSportFragment = (SportFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SPORT + "");
-                    if (mSportFragment == null) {
-                        mSportFragment = new SportFragment();
-                        transaction.add(R.id.fragment_content, mSportFragment, tag + "");
+                    sportFragment = (SportFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SPORT + "");
+                    if (sportFragment == null) {
+                        sportFragment = new SportFragment();
+                        transaction.add(R.id.fragment_content, sportFragment, tag + "");
                     } else {
-                        transaction.show(mSportFragment);
+                        transaction.show(sportFragment);
                     }
-                    mPresenter.setView(mSportFragment);
+                    presenter.setView(sportFragment);
                     break;
                 case TagStatic.TAG_FRAGMENT_OTHER:
-                    mOtherFragment = (OtherFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_OTHER + "");
-                    if (mOtherFragment == null) {
-                        mOtherFragment = new OtherFragment();
-                        transaction.add(R.id.fragment_content, mOtherFragment, tag + "");
+                    otherFragment = (OtherFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_OTHER + "");
+                    if (otherFragment == null) {
+                        otherFragment = new OtherFragment();
+                        transaction.add(R.id.fragment_content, otherFragment, tag + "");
                     } else {
-                        transaction.show(mOtherFragment);
+                        transaction.show(otherFragment);
                     }
-                    mPresenter.setView(mOtherFragment);
+                    presenter.setView(otherFragment);
                     break;
             }
             transaction.commitAllowingStateLoss();
         }
     }
     private void hideFragments() {
-        FragmentTransaction transaction = mFragmentManager.beginTransaction();
-        mTodayFragment = (TodayFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_TODAY + "");
-        if (mTodayFragment != null) {
-            transaction.hide(mTodayFragment);
+        FragmentTransaction transaction = manager.beginTransaction();
+        todayFragment = (TodayFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_TODAY + "");
+        if (todayFragment != null) {
+            transaction.hide(todayFragment);
         }
-        mInterestFragment = (InterestFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_INTEREST + "");
-        if (mInterestFragment != null) {
-            transaction.hide(mInterestFragment);
+        interestFragment = (InterestFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_INTEREST + "");
+        if (interestFragment != null) {
+            transaction.hide(interestFragment);
         }
-        mSafetyFragment = (SafetyFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SAFETY + "");
-        if (mSafetyFragment != null) {
-            transaction.hide(mSafetyFragment);
+        safetyFragment = (SafetyFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SAFETY + "");
+        if (safetyFragment != null) {
+            transaction.hide(safetyFragment);
         }
-        mSportFragment = (SportFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SPORT + "");
-        if (mSportFragment != null) {
-            transaction.hide(mSportFragment);
+        sportFragment = (SportFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_SPORT + "");
+        if (sportFragment != null) {
+            transaction.hide(sportFragment);
         }
-        mOtherFragment = (OtherFragment) mFragmentManager.findFragmentByTag(TagStatic.TAG_FRAGMENT_OTHER + "");
-        if (mOtherFragment != null) {
-            transaction.hide(mOtherFragment);
+        otherFragment = (OtherFragment) manager.findFragmentByTag(TagStatic.TAG_FRAGMENT_OTHER + "");
+        if (otherFragment != null) {
+            transaction.hide(otherFragment);
         }
         transaction.commitAllowingStateLoss();
     }
