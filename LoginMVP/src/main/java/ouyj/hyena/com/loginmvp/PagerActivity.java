@@ -1,7 +1,7 @@
 package ouyj.hyena.com.loginmvp;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class PagerActivity extends AppCompatActivity {
 

@@ -15,7 +15,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-        //加载指定的片段类
+        //在活动类布局中加载指定片段类（登录框在片段布局内）
         LoginFragment login = (LoginFragment) getSupportFragmentManager().findFragmentById(R.id.content);
         if (login == null) {
             login = LoginFragment.newInstance("LOGIN_FRAGMENT");
